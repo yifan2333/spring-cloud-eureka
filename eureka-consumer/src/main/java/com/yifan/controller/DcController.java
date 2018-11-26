@@ -38,4 +38,14 @@ public class DcController {
         return dcClient.consumer();
     }
 
+    @GetMapping("/test")
+    public String test() {
+
+        Test test = new Test();
+        test.setId(1);
+        test.setName("吴一凡");
+
+        return dcClient.post(test);
+    }
+
 }

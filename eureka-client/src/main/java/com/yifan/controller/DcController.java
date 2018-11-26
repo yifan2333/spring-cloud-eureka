@@ -1,10 +1,11 @@
 package com.yifan.controller;
 
+import javax.annotation.Resource;
+
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @author yifan
@@ -26,5 +27,10 @@ public class DcController {
         String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
         return services;
+    }
+
+    @PostMapping("/post")
+    public String post(Test test) {
+        return test.toString();
     }
 }

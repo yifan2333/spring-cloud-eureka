@@ -1,14 +1,15 @@
 package com.yifan.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import feign.Logger;
 
 /**
  * @author yifan
  * @since 2018年03月27日
  */
-@ComponentScan(value = "com.yifan")
 @Configuration
 @EnableAutoConfiguration
 public class EurekaConfig {
@@ -17,4 +18,8 @@ public class EurekaConfig {
 //    public RestTemplate restTemplate() {
 //        return new RestTemplate();
 //    }
+    @Bean
+    Logger.Level feignLoggerLevel() {
+        return Logger.Level.FULL;
+    }
 }
